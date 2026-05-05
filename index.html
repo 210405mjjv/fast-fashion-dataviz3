@@ -1,0 +1,489 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The True Cost of Fast Fashion</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ============================================================
+       SECTION 1 — TITLE / HERO
+       Full-viewport background image with centered headline.
+  ============================================================ -->
+  <header class="s-hero">
+    <div class="hero__overlay">
+      <h1 class="hero__title">The True Cost<br>of Fast Fashion</h1>
+      <p class="hero__subtitle">How ultra-cheap clothing is reshaping our planet</p>
+    </div>
+  </header>
+
+  <main>
+
+  <!-- ============================================================
+        SECTION 2 — WHAT IS FAST FASHION?
+        Narrow text column  →  full-width brand collage.
+  ============================================================ -->
+  <section class="s-intro" id="s-intro" aria-labelledby="intro-heading">
+
+  <div class="s-intro__sticky">
+
+    <div class="prose-col s-intro__text">
+      <h2 id="intro-heading">What is fast fashion?</h2>
+      <p>
+        Fast fashion refers to the rapid production of inexpensive, trend-driven
+        clothing. A garment is designed, manufactured, and placed in stores within weeks,
+        but is then quickly replaced by the next trend.
+      </p>
+    </div>
+
+    <div class="full-width-media" id="brand-collage" aria-label="Collage of fast fashion brand logos">
+      <div class="logo-collage">
+
+        <!-- Row 1 -->
+        <div class="logo-item" data-order="6"  style="grid-column:1; grid-row:1;">
+          <img src="images/logos/intimissimi.png" alt="Intimissimi">
+        </div>
+        <div class="logo-item" data-order="7"  style="grid-column:2; grid-row:1;">
+          <img src="images/logos/urban outfitters.png" alt="Urban Outfitters">
+        </div>
+
+        <!-- Row 2 -->
+        <div class="logo-item logo-item--tall" data-order="2"  style="grid-column:1; grid-row:2/5;">
+          <img src="images/logos/uniqlo.png" alt="Uniqlo">
+        </div>
+        <div class="logo-item" data-order="8"  style="grid-column:2; grid-row:2;">
+          <img src="images/logos/fabletics.png" alt="Fabletics">
+        </div>
+        <div class="logo-item" data-order="9"  style="grid-column:3; grid-row:2;">
+          <img src="images/logos/guess.png" alt="Guess">
+        </div>
+        <div class="logo-item" data-order="10" style="grid-column:4; grid-row:2;">
+          <img src="images/logos/forever 21.png" alt="Forever 21">
+        </div>
+        <div class="logo-item logo-item--tall" data-order="3"  style="grid-column:5; grid-row:2/5;">
+          <img src="images/logos/H&M.png" alt="H&M">
+        </div>
+
+        <!-- Row 3 -->
+        <div class="logo-item" data-order="11" style="grid-column:2; grid-row:3;">
+          <img src="images/logos/pacsun.png" alt="Pacsun">
+        </div>
+        <div class="logo-item logo-item--tall" data-order="1"  style="grid-column:3; grid-row:3/6;">
+          <img src="images/logos/zara.png" alt="Zara">
+        </div>
+        <div class="logo-item" data-order="12" style="grid-column:4; grid-row:3;">
+          <img src="images/logos/cider.png" alt="Cider">
+        </div>
+
+        <!-- Row 4 -->
+        <div class="logo-item" data-order="13" style="grid-column:2; grid-row:4;">
+          <img src="images/logos/brandy melville.png" alt="Brandy Melville">
+        </div>
+        <div class="logo-item" data-order="14" style="grid-column:4; grid-row:4;">
+          <img src="images/logos/desigual.png" alt="Desigual">
+        </div>
+        <div class="logo-item logo-item--tall" data-order="17" style="grid-column:5; grid-row:5/7;">
+          <img src="images/logos/gap.png" alt="Gap">
+        </div>
+
+        <!-- Row 5 -->
+        <div class="logo-item" data-order="15" style="grid-column:1; grid-row:5;">
+          <img src="images/logos/cotton on.png" alt="Cotton:On">
+        </div>
+        <div class="logo-item" data-order="16" style="grid-column:2; grid-row:5;">
+          <img src="images/logos/victoria's secret.png" alt="Victoria's Secret">
+        </div>
+        <div class="logo-item" data-order="4"  style="grid-column:4; grid-row:5;">
+          <img src="images/logos/shein.png" alt="Shein">
+        </div>
+
+        <!-- Row 6 -->
+        <div class="logo-item" data-order="18" style="grid-column:1; grid-row:6;">
+          <img src="images/logos/bershka.png" alt="Bershka">
+        </div>
+        <div class="logo-item" data-order="19" style="grid-column:2; grid-row:6;">
+          <img src="images/logos/aerie.png" alt="Aerie">
+        </div>
+        <div class="logo-item" data-order="20" style="grid-column:3; grid-row:6;">
+          <img src="images/logos/free people.png" alt="Free People">
+        </div>
+        <div class="logo-item" data-order="21" style="grid-column:4; grid-row:6;">
+          <img src="images/logos/princess polly.png" alt="Princess Polly">
+        </div>
+
+        <!-- Row 7 -->
+        <div class="logo-item" data-order="22" style="grid-column:1; grid-row:7;">
+          <img src="images/logos/mango.png" alt="Mango">
+        </div>
+        <div class="logo-item" data-order="23" style="grid-column:2; grid-row:7;">
+          <img src="images/logos/skims.png" alt="Skims">
+        </div>
+        <div class="logo-item" data-order="24" style="grid-column:3; grid-row:7;">
+          <img src="images/logos/hollister.png" alt="Hollister">
+        </div>
+        <div class="logo-item" data-order="25" style="grid-column:4; grid-row:7;">
+          <img src="images/logos/old navy.png" alt="Old Navy">
+        </div>
+
+        <!-- Row 8 -->
+        <div class="logo-item" data-order="26" style="grid-column:2; grid-row:8;">
+          <img src="images/logos/revolve.png" alt="Revolve">
+        </div>
+        <div class="logo-item" data-order="27" style="grid-column:3; grid-row:8;">
+          <img src="images/logos/garage.png" alt="Garage">
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+
+  <!-- ============================================================
+     SECTION 3 — HOW DID WE GET HERE? (GROWTH)
+     Pinned scrollytelling: haul photos → second text → bar chart
+  ============================================================ -->
+  <section class="s-growth" id="s-growth" aria-labelledby="growth-heading">
+  <div class="s-growth__sticky">
+    <div class="s-growth__inner">
+
+      <!-- LEFT HALF -->
+      <div class="s-growth__left">
+        <div class="s-growth__copy">
+          <h2 id="growth-heading">How did we get here?</h2>
+
+          <p class="s-growth__text-1">
+            Social media, influencer culture, and algorithmic trend cycles supercharged
+            demand for cheap clothing.
+          </p>
+
+          <p class="s-growth__text-2" id="growth-text-2" aria-hidden="true">
+            In 2021 the global fast fashion market was valued at $91 billion.
+            By 2027, it is projected to reach <strong>$185 billion</strong>.
+          </p>
+        </div>
+      </div>
+
+      <!-- RIGHT HALF -->
+      <div class="s-growth__right">
+        <div id="haul-collage" aria-label="Collage of social media clothing haul videos">
+          <div class="haul-item" data-haul-index="0" style="--r:-4deg; --x:0px;   --y:0px;">
+            <img src="images/haul/haul1.JPG" alt="Haul 1">
+          </div>
+          <div class="haul-item" data-haul-index="1" style="--r:3deg;  --x:90px;  --y:10px;">
+            <img src="images/haul/haul2.JPG" alt="Haul 2">
+          </div>
+          <div class="haul-item" data-haul-index="2" style="--r:-2deg; --x:180px; --y:-8px;">
+            <img src="images/haul/haul3.PNG" alt="Haul 3">
+          </div>
+          <div class="haul-item" data-haul-index="3" style="--r:5deg;  --x:40px;  --y:150px;">
+            <img src="images/haul/haul4.PNG" alt="Haul 4">
+          </div>
+          <div class="haul-item" data-haul-index="4" style="--r:-3deg; --x:150px; --y:140px;">
+            <img src="images/haul/haul5.PNG" alt="Haul 5">
+          </div>
+          <div class="haul-item" data-haul-index="5" style="--r:4deg;  --x:250px; --y:155px;">
+            <img src="images/haul/haul6.PNG" alt="Haul 6">
+          </div>
+          <div class="haul-item" data-haul-index="6" style="--r:-6deg; --x:95px;  --y:290px;">
+            <img src="images/haul/haul7.PNG" alt="Haul 7">
+          </div>
+          <div class="haul-item" data-haul-index="7" style="--r:2deg;  --x:210px; --y:285px;">
+            <img src="images/haul/haul8.PNG" alt="Haul 8">
+          </div>
+        </div>
+
+        <div
+          id="market-size-chart"
+          class="s-growth__chart"
+          aria-label="Bar chart of fast fashion market growth">
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </section>
+
+
+    <!-- ============================================================
+         SECTION 4 — WHERE WE ARE (PRODUCTION vs WASTE)
+         Narrow text  →  full-width line chart.
+    ============================================================ -->
+    <section class="s-production" id="s-production" aria-labelledby="production-heading">
+
+      <div class="prose-col">
+        <h2 id="production-heading">Where we are</h2>
+        <p>We are producing more garments than ever before. However, we are also
+           throwing away more garments than ever before.</p>
+      </div>
+
+      <!-- Connected scatterplot — full viewport width -->
+      <div class="full-width-media" id="line-chart" aria-label="Line chart of textile generation vs landfilling"></div>
+
+    </section>
+
+
+    <!-- ============================================================
+         SECTION 5 — WHAT ARE WE WEARING? (MATERIAL COMPOSITION)
+         Narrow text  →  full-width pictorial stacked chart.
+    ============================================================ -->
+    <section class="s-materials-composition" id="s-materials-composition" aria-labelledby="composition-heading">
+      <div class="s-materials__sticky">
+        <div class="s-materials__inner">
+
+          <div class="s-materials__left">
+            <div class="s-materials__copy">
+              <h2 id="composition-heading">What are we wearing?</h2>
+              <p>
+                Most fast fashion garments are made from synthetic fibres - such as
+                polyester, elastane and nylon — that can take hundreds of years to break down.
+              </p>
+            </div>
+          </div>
+
+          <div class="s-materials__right">
+            <svg id="shirt-composition-svg"
+              viewBox="0 0 479.06 493.97"
+              aria-labelledby="composition-title composition-desc"
+              role="img">
+
+              <title id="composition-title">Garment composition chart</title>
+              <desc id="composition-desc">A shirt gradually fills to show the percentage of each material in the garment.</desc>
+
+              <defs>
+                <clipPath id="shirt-clip">
+                  <path id="shirt-shape"
+                    d="M.69,151.64S50.39,72.63,57.18,60.9s20.06-34.57,23.15-35.19S133.41,2.87,137.42.71s29.63,12.65,41.98,16.36,73.46,9.57,84.57,8.02,52.47-7.72,57.72-11.42,23.46-12.65,29.32-11.73,51.85,22.84,54.63,25.93,69.75,123.76,72.84,123.76-72.41,63.19-81.48,74.38c-8.02-5.25-14.8-8.62-16.91-11.5s2.19,260.71,7.7,278.94c-12.48,0-285.74-.23-292.07,0-2.01-2.87,2.02-39.31,3.61-90.97s5.7-181.59,2.85-186.03c-5.84,3.58-2.26,4.42-14.59,9.22-5.82-5.14-64.9-60.76-86.89-74.03Z" />
+                </clipPath>
+              </defs>
+
+              <image
+                id="shirt-base-image"
+                href="images/materials/hm-shirt-base.png"
+                x="0"
+                y="0"
+                width="479"
+                height="493"
+                preserveAspectRatio="xMidYMid meet"
+                clip-path="url(#shirt-clip)" />
+
+              <rect
+                id="material-fill-1"
+                x="0"
+                y="493"
+                width="479"
+                height="0"
+                fill="#d99aa4"
+                clip-path="url(#shirt-clip)"
+                opacity="0.78" />
+
+              <rect
+                id="material-fill-2"
+                x="0"
+                y="493"
+                width="479"
+                height="0"
+                fill="#b8b3e9"
+                clip-path="url(#shirt-clip)"
+                opacity="0.85" />
+
+              <path
+                id="shirt-outline"
+                d="M.69,151.64S50.39,72.63,57.18,60.9s20.06-34.57,23.15-35.19S133.41,2.87,137.42.71s29.63,12.65,41.98,16.36,73.46,9.57,84.57,8.02,52.47-7.72,57.72-11.42,23.46-12.65,29.32-11.73,51.85,22.84,54.63,25.93,69.75,123.76,72.84,123.76-72.41,63.19-81.48,74.38c-8.02-5.25-14.8-8.62-16.91-11.5s2.19,260.71,7.7,278.94c-12.48,0-285.74-.23-292.07,0-2.01-2.87,2.02-39.31,3.61-90.97s5.7-181.59,2.85-186.03c-5.84,3.58-2.26,4.42-14.59,9.22-5.82-5.14-64.9-60.76-86.89-74.03Z"
+                fill="none"
+                stroke="#8e8176"
+                stroke-width="2"
+                vector-effect="non-scaling-stroke" />
+
+              <line
+                id="composition-split-line"
+                x1="40"
+                x2="360"
+                y1="0"
+                y2="0"
+                stroke="#5d534a"
+                stroke-width="2"
+                stroke-dasharray="5 5"
+                opacity="0" />
+
+              <g id="composition-label-1" opacity="0">
+                <text x="390" y="250" class="composition-label-pct">95%</text>
+                <text x="390" y="278" class="composition-label-name">Polyester</text>
+              </g>
+
+              <g id="composition-label-2" opacity="0">
+                <text x="390" y="95" class="composition-label-pct">5%</text>
+                <text x="390" y="123" class="composition-label-name">Elastane</text>
+              </g>
+
+            </svg>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         SECTION 6 — IMPACT OF MATERIALS (HEAT MAP)
+         Narrow text  →  full-width interactive heat map.
+    ============================================================ -->
+    <section class="s-impact" id="s-impact" aria-labelledby="impact-heading">
+
+      <div class="prose-col">
+        <h2 id="impact-heading">Impact of the materials</h2>
+        <p>Not all fibres are equal. Hover over each textile below to explore
+           how it ranks across seven environmental impact categories — from
+           climate change to water use.</p>
+      </div>
+
+      <!-- Heat map + sidebar tooltip — full viewport width -->
+      <div class="full-width-media full-width-media--with-sidebar" id="materials-chart" aria-label="Heatmap of textile environmental impacts">
+        <!-- Heat map rendered by ImpactHeatMap.js -->
+        <!-- Sidebar detail panel (populated on hover) -->
+        <aside class="material-detail-panel" id="material-detail" aria-live="polite" hidden>
+          <h3 class="material-detail__name" id="material-detail-name"></h3>
+          <p class="material-detail__body" id="material-detail-body"></p>
+        </aside>
+      </div>
+
+    </section>
+
+
+    <!-- ============================================================
+         SECTION 7 — WASHING & MICROPLASTICS
+         Narrow text  →  full-width washing machine animation  →
+         narrow stat text  →  full-width bottle visual.
+    ============================================================ -->
+    <section class="s-washing" id="s-washing" aria-labelledby="washing-heading">
+
+      <div class="prose-col">
+        <h2 id="washing-heading">Every wash pollutes</h2>
+        <p>When synthetic garments are machine-washed, they shed microscopic
+           plastic fibres that pass straight through water-treatment plants and
+           into rivers and oceans.</p>
+      </div>
+
+      <!-- Scroll-triggered washing-machine illustration — full viewport width -->
+      <div class="full-width-media" id="washing-machine" aria-label="Animated washing machine illustration">
+        <!-- PLACEHOLDER: SVG / canvas animation to be added -->
+        <div class="media-placeholder">Washing Machine Animation — to be built</div>
+      </div>
+
+      <!-- Stat pull-quote -->
+      <div class="prose-col prose-col--stat">
+        <p class="stat-text">On average, <strong>500,000 tons</strong> of microplastics
+           are released into the ocean each year from washing synthetic textiles —
+           the equivalent of <strong>50 million plastic bottles</strong>.</p>
+      </div>
+
+      <!-- Bottle-equivalent visual — full viewport width -->
+      <div class="full-width-media" id="bottle-visual" aria-label="Visual showing 50 million plastic bottle equivalent">
+        <!-- PLACEHOLDER: icon-array / illustration to be added -->
+        <div class="media-placeholder">50M Bottles Visual — to be built</div>
+      </div>
+
+    </section>
+
+
+    <!-- ============================================================
+         SECTION 8 — ALL THIS FOR WHAT? (WEARS COUNTER)
+         Narrow text  →  full-width interactive outfit scroll.
+    ============================================================ -->
+    <section class="s-wears" id="s-wears" aria-labelledby="wears-heading">
+
+      <div class="prose-col">
+        <h2 id="wears-heading">All this, for what?</h2>
+        <p>The average consumer now buys <strong>60 % more clothing</strong> than 15
+           years ago, but keeps each item for only half as long. A garment is
+           typically worn just 7–10 times before being thrown away.</p>
+      </div>
+
+      <!-- Scroll-driven outfit interactive — full viewport width -->
+      <div class="full-width-media" id="wear-chart" aria-label="Interactive outfit scroll showing 7 wears before disposal">
+        <!-- PLACEHOLDER: scroll-driven D3 / SVG to be added -->
+        <div class="media-placeholder">Outfit / Wear Counter — to be built</div>
+      </div>
+
+    </section>
+
+
+    <!-- ============================================================
+         SECTION 9 — THROWN AWAY (COLLAGE + COMMENTS)
+         Full-width collage of discarded clothes + social-media comments.
+         (No text column; the images tell the story.)
+    ============================================================ -->
+    <section class="s-throwaway" id="s-throwaway" aria-labelledby="throwaway-heading">
+
+      <!-- Minimal heading still useful for accessibility / screen readers -->
+      <div class="prose-col">
+        <h2 id="throwaway-heading" class="sr-only">Thrown away</h2>
+      </div>
+
+      <!-- Full-bleed collage — full viewport width -->
+      <div class="full-width-media" id="throwaway-collage" aria-label="Collage of discarded clothing and social media comments calling clothes unfashionable">
+        <!-- PLACEHOLDER: collage images + overlaid comment screenshots -->
+        <div class="media-placeholder">Throwaway Collage + Social Comments — images to be added</div>
+      </div>
+
+    </section>
+
+
+    <!-- ============================================================
+         SECTION 10 — WHAT WE CAN DO
+         Narrow text  →  tips grid  →  links.
+    ============================================================ -->
+    <section class="s-action" id="s-action" aria-labelledby="action-heading">
+
+      <div class="prose-col">
+        <h2 id="action-heading">What we can do</h2>
+        <p>The fashion industry's footprint is enormous, but individual choices
+           add up. Here are a few ways to reduce your impact.</p>
+      </div>
+
+      <!-- Tips grid (narrow-column width, not full-bleed) -->
+      <div class="prose-col">
+        <ul class="tips-list">
+          <li><strong>Buy less, choose well.</strong> Invest in quality pieces you will actually wear.</li>
+          <li><strong>Shop secondhand.</strong> Thrift stores and resale platforms extend a garment's life.</li>
+          <li><strong>Repair, don't discard.</strong> A small mend keeps clothes out of landfill.</li>
+          <li><strong>Wash less &amp; cold.</strong> Reduces both energy use and microplastic shedding.</li>
+          <li><strong>Support sustainable brands.</strong> Vote with your wallet for transparent supply chains.</li>
+        </ul>
+      </div>
+
+      <!-- Resource links (narrow column) -->
+      <div class="prose-col">
+        <h3>Further reading &amp; resources</h3>
+        <ul class="links-list">
+          <li><a href="https://goodonyou.eco" target="_blank" rel="noopener">Good On You</a> — brand ethics ratings</li>
+          <li><a href="https://www.fashionrevolution.org" target="_blank" rel="noopener">Fashion Revolution</a> — transparency advocacy</li>
+          <li><a href="https://www.thredup.com/resale" target="_blank" rel="noopener">thredUP Resale Report</a> — secondhand market data</li>
+        </ul>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ================================================================
+       SCRIPTS — D3 + Scrollama + chart modules, main controller last
+  ================================================================ -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://unpkg.com/scrollama"></script>
+
+  <script src="js/MarketSizeBarChart.js"></script>
+  <script src="js/TextilesLineChart.js"></script>
+  <script src="js/ImpactHeatMap.js"></script>
+  <script src="js/CompositionChart.js"></script>
+
+  <script src="js/main.js"></script> <!-- ALWAYS LAST -->
+
+</body>
+</html>

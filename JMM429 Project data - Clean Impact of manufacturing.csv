@@ -1,0 +1,36 @@
+Category,Rank,Textile
+Climate Change,5,Nylon
+Climate Change,4,Acryl
+Climate Change,3,Elastane
+Climate Change,2,Polyester
+Climate Change,1,Cotton
+Land Use,5,Cotton
+Land Use,4,Elastane
+Land Use,3,Acryl
+Land Use,2,Polyester
+Land Use,1,Nylon
+Water Use,5,Cotton
+Water Use,4,Nylon
+Water Use,3,Acryl
+Water Use,2,Elastane
+Water Use,1,Polyester
+Eutrophication,5,Cotton
+Eutrophication,4,Acryl
+Eutrophication,3,Nylon
+Eutrophication,2,Elastane
+Eutrophication,1,Polyester
+Mineral Resource Use,5,Cotton
+Mineral Resource Use,4,Acryl
+Mineral Resource Use,3,Polyester
+Mineral Resource Use,2,Elastane
+Mineral Resource Use,1,Nylon
+Fossil Resource Use,5,Nylon
+Fossil Resource Use,4,Acryl
+Fossil Resource Use,3,Elastane
+Fossil Resource Use,2,Polyester
+Fossil Resource Use,1,Cotton
+Toxicity,5,Acryl
+Toxicity,4,Polyester
+Toxicity,3,Cotton
+Toxicity,2,Elastane
+Toxicity,1,Nylon
