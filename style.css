@@ -27,11 +27,11 @@
 :root {
   /* Colour palette */
   --color-bg:          #f7f5f0;   /* off-white */
-  --color-text:        #1C1D21;   /* carbon-black body text */
-  --color-heading:     #1C1D21;   /* carbon-black */
+  --color-text:        #211C1C;   /* shadow-gray */
+  --color-heading:     #211C1C;   /* shadow-gray */
   --color-muted:       #6f6257;   /* secondary / caption text */
-  --color-accent:      #97A12B;   /* toxic green — charts, highlights */
-  --color-accent-alt:  #FF8552;   /* coral */
+  --color-accent:      #BD153F;   /* charts, highlights */
+  --color-accent-alt:  #BD153F;   /* coral */
   --color-border:      #e0dbd3;   /* light dividers */
   --color-white:       #ffffff;
 
@@ -513,15 +513,28 @@ section {
   width: 100%;
 }
 
-/* Tall section gives scroll room for the 3-phase line chart animation */
 #s-production {
   min-height: 300vh;
-  padding-bottom: 0;
+  padding: 0;
+}
+
+.s-production__sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  padding-top: clamp(72px, 12vh, 130px);
+  background-color: var(--color-bg);
+  overflow: hidden;
+}
+
+#s-production .prose-col {
+  position: relative;
+  z-index: 2;
 }
 
 #s-production #line-chart {
-  position: sticky;
-  top: 80px;         /* breathing room from top of viewport */
+  margin-top: clamp(40px, 6vh, 72px);
+  overflow: visible;
 }
 
 /* ----------------------------------------------------------------
@@ -595,7 +608,7 @@ section {
   font-family: var(--font-sans);
   font-size: 1rem;
   font-weight: 600;
-  fill: var(--color-muted);
+  fill: var(--color-heading);
 }
 
 @media (max-width: 900px) {
@@ -625,30 +638,282 @@ section {
 
 /* ----------------------------------------------------------------
    5d. IMPACT HEAT MAP
-   The heat-map SVG is wide; allow it to scroll horizontally on
-   small screens rather than breaking layout.
 ---------------------------------------------------------------- */
+
+.s-impact {
+  padding-bottom: clamp(120px, 16vh, 180px);
+}
+
+#materials-chart-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: clamp(56px, 6vw, 90px);
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 clamp(24px, 4vw, 64px);
+  overflow: visible;
+}
+
 #materials-chart {
-  overflow-x: auto;
-  padding: 0 clamp(16px, 3vw, 48px);
+  flex: 0 0 auto;
+  width: min(760px, 58vw);
+  overflow: visible;
 }
 
 #materials-chart svg {
-  overflow: visible; /* labels outside the SVG viewBox stay visible */
-  min-width: 600px;  /* prevent collapse on narrow screens */
+  overflow: visible;
+  width: 100%;
+  min-width: 0;
 }
 
+.material-tag {
+  width: 280px;
+  min-width: 280px;
+  min-height: 390px;
+  flex: 0 0 280px;
+  position: relative;
+  top: auto;
+  align-self: flex-start;
+
+  background: #fffaf4;
+  border: 1.5px solid #d8cbbb;
+  border-radius: 10px;
+  padding: 34px 22px 24px;
+
+  box-shadow: 0 8px 22px rgba(31, 26, 23, 0.12);
+  transform: rotate(1.5deg);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* Material detail sidebar (shown on heatmap hover) */
+.material-tag {
+  width: 300px;
+  min-width: 300px;
+  min-height: 430px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 90px;
+  align-self: flex-start;
+
+  background: #fffaf4;
+  border: 1.5px solid #d8cbbb;
+  border-radius: 10px;
+  padding: 38px 24px 26px;
+
+  box-shadow: 0 8px 22px rgba(31, 26, 23, 0.12);
+  transform: rotate(1.5deg);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+@media (max-width: 1000px) {
+  #materials-chart {
+    overflow-x: auto;
+    justify-content: flex-start;
+  }
+
+  .material-tag {
+    position: relative;
+    top: auto;
+  }
+}
+
+.material-tag::before {
+  content: "";
+  position: absolute;
+  top: -34px;
+  left: 50%;
+  width: 2px;
+  height: 42px;
+  background: #c96b2c;
+  transform: translateX(-50%) rotate(-8deg);
+}
+
+.material-tag__hole {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  transform: translateX(-50%);
+  border: 2px solid #b8aa9a;
+  border-radius: 50%;
+  background: var(--color-bg);
+}
+
+.material-tag__image {
+  width: 100%;
+  height: 130px;
+  margin-bottom: 18px;
+  border: 1.5px dashed #d8cbbb;
+  border-radius: 6px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 0.75rem;
+  font-style: italic;
+  color: var(--color-muted);
+  background: #f5f1eb;
+}
+
+.material-tag__eyebrow {
+  margin-bottom: 6px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #9f2f3f;
+}
+
+.material-tag__name {
+  margin-bottom: 10px;
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  line-height: 1.1;
+  color: var(--color-heading);
+}
+
+.material-tag__body {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--color-text);
+}
+
+.material-tag.is-active {
+  transform: rotate(0deg) scale(1.02);
+}
+
+/* Development placeholder for missing media content */
+.media-placeholder {
+  width: 100%;
+  min-height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: repeating-linear-gradient(
+    -45deg,
+    #ede8e0,
+    #ede8e0 10px,
+    #e4dfd6 10px,
+    #e4dfd6 20px
+  );
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  font-style: italic;
+  text-align: center;
+  padding: 24px;
+  border: 2px dashed var(--color-border);
+}
+
+/* Screen-reader-only (accessible hidden label) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 
 /* ----------------------------------------------------------------
    5e. WEAR CHART — accent background
 ---------------------------------------------------------------- */
-#wear-chart {
-  background: var(--color-accent);
-  border-radius: 0; /* full-bleed; no rounded corners */
-  padding: clamp(24px, 4vw, 48px);
-  min-height: 320px;
+/* ----------------------------------------------------------------
+   5e. WEARS SECTION — outfit changes
+---------------------------------------------------------------- */
+
+.s-wears {
+  min-height: 420vh;
+  padding: 0;
+  background: var(--color-bg);
 }
 
+.s-wears__sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(320px, 42vw) 1fr;
+  align-items: center;
+  gap: clamp(32px, 6vw, 96px);
+  padding: clamp(32px, 6vw, 80px);
+  overflow: hidden;
+}
+
+.s-wears__text {
+  max-width: 520px;
+  align-self: start;
+  padding-top: clamp(80px, 14vh, 150px);
+}
+
+.s-wears__text-2 {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.s-wears__text-2.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.s-wears__visual {
+  position: relative;
+  height: min(78vh, 720px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.outfit-stage {
+  position: relative;
+  width: min(460px, 38vw);
+  height: min(640px, 72vh);
+}
+
+.outfit-item,
+.trash-can {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transform: translateY(18px) scale(0.96);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.outfit-item.visible,
+.trash-can.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.wear-counter {
+  position: absolute;
+  top: clamp(12px, 4vh, 36px);
+  right: clamp(12px, 4vw, 48px);
+  z-index: 3;
+  font-family: var(--font-serif);
+  font-size: clamp(1.2rem, 2.5vw, 2rem);
+  color: var(--color-heading);
+  background: rgba(238, 233, 224, 0.86);
+  padding: 0.35em 0.7em;
+  border: 1px solid var(--color-border);
+}
+
+.trash-can {
+  width: 78%;
+  height: 78%;
+  left: 11%;
+  top: 11%;
+}
 
 /* ----------------------------------------------------------------
    5f. WASHING SECTION
@@ -668,6 +933,93 @@ section {
   padding: clamp(24px, 4vw, 48px);
 }
 
+/* ----------------------------------------------------------------
+   WASHING SECTION — sticky row reveal
+---------------------------------------------------------------- */
+
+.s-washing {
+  min-height: 360vh;
+  padding-top: 0;
+}
+
+.s-washing__sticky {
+  position: sticky;
+  top: 0;
+  min-height: 100vh;
+  padding-top: clamp(72px, 12vh, 120px);
+  background: var(--color-bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.s-washing__text {
+  margin-bottom: clamp(48px, 8vh, 80px);
+  text-align: center;
+}
+
+.s-washing__text h2 {
+  margin-bottom: 0;
+}
+
+.washing-steps {
+  width: min(1180px, 92vw);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(32px, 6vw, 88px);
+  align-items: start;
+}
+
+.washing-step {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+  text-align: center;
+}
+
+.washing-step.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.washing-step img {
+  width: 100%;
+  max-width: 260px;
+  height: 220px;
+  margin: 0 auto 28px;
+  object-fit: contain;
+}
+
+.washing-step figcaption {
+  max-width: 300px;
+  margin: 0 auto;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  font-weight: 400;
+  color: var(--color-text);
+}
+
+@media (max-width: 800px) {
+  .washing-steps {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .s-washing {
+    min-height: auto;
+  }
+
+  .s-washing__sticky {
+    position: relative;
+  }
+
+  .washing-step {
+    opacity: 1;
+    transform: none;
+  }
+}
 
 /* ----------------------------------------------------------------
    5g. THROWAWAY SECTION — full-bleed collage
@@ -732,61 +1084,6 @@ section {
 .links-list li:last-child {
   border-bottom: none;
 }
-
-/* Material detail sidebar (shown on heatmap hover) */
-.material-detail-panel {
-  min-width: 220px;
-  max-width: 260px;
-  flex-shrink: 0;
-  background: var(--color-white);
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-  align-self: flex-start;
-  position: sticky;
-  top: 24px;
-}
-
-.material-detail__name {
-  margin-bottom: 8px;
-  color: var(--color-accent);
-}
-
-/* Development placeholder for missing media content */
-.media-placeholder {
-  width: 100%;
-  min-height: 240px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: repeating-linear-gradient(
-    -45deg,
-    #ede8e0,
-    #ede8e0 10px,
-    #e4dfd6 10px,
-    #e4dfd6 20px
-  );
-  color: var(--color-muted);
-  font-size: 0.875rem;
-  font-style: italic;
-  text-align: center;
-  padding: 24px;
-  border: 2px dashed var(--color-border);
-}
-
-/* Screen-reader-only (accessible hidden label) */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
 
 /* ----------------------------------------------------------------
    7. SCROLLAMA / ANIMATION HELPERS

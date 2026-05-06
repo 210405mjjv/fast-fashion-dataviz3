@@ -1,8 +1,8 @@
 let animateLineChart = () => {};
 
 const colors2 = {
-  generation: "#ff7033",
-  landfill:   "#97A12B",
+  generation: "#BD153F",
+  landfill:   "#690249",
   connector:  "#c0a898",
   text:       "#1C1D21",      // carbon black
   muted:      "#1C1D21",
@@ -108,26 +108,33 @@ d3.csv("JMM429 Project data - Clean Textile production (1).csv").then(data => {
     .attr("cx", d => x(d.Year)).attr("cy", d => y(d.Landfilled))
     .attr("r", 4).attr("fill", colors2.landfill).attr("opacity", 0);
 
-  // ── Labels (appear with first dot of each phase) ───────────────
-  const labelGen = svg2.append("text")
-    .attr("class", "label-gen")
-    .attr("x", x(data[1].Year))
-    .attr("y", y(data[1].Generation) - 12)
-    .attr("text-anchor", "middle")
-    .style("font-size", "12px").style("font-weight", "600")
-    .style("fill", colors2.generation)
-    .attr("opacity", 0)
-    .text("Generated");
+  
+  // Line labels
+const last = data[data.length - 3];
 
-  const labelLandfill = svg2.append("text")
-    .attr("class", "label-landfill")
-    .attr("x", x(data[0].Year))
-    .attr("y", y(data[0].Landfilled) - 12)
-    .attr("text-anchor", "middle")
-    .style("font-size", "12px").style("font-weight", "600")
-    .style("fill", colors2.landfill)
-    .attr("opacity", 0)
-    .text("Landfilled");
+// Generation label (top right of orange line)
+const labelGen = svg2.append("text")
+  .attr("class", "label-gen")
+  .attr("x", x(last.Year) - 30) // slight left offset
+  .attr("y", y(last.Generation) - 30)
+  .attr("text-anchor", "start")
+  .style("font-size", "12px")
+  .style("font-weight", "600")
+  .style("fill", colors2.generation)
+  .attr("opacity", 0)
+  .text("Generated");
+
+// Landfill label (top right of green line)
+const labelLandfill = svg2.append("text")
+  .attr("class", "label-landfill")
+  .attr("x", x(last.Year) - 30)
+  .attr("y", y(last.Landfilled) - 30)
+  .attr("text-anchor", "start")
+  .style("font-size", "12px")
+  .style("font-weight", "600")
+  .style("fill", colors2.landfill)
+  .attr("opacity", 0)
+  .text("Landfilled");
 
   // ── Scroll-driven animation ────────────────────────────────────
   // The section has extra scroll height (set in CSS via min-height on s-production)

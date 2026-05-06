@@ -2,11 +2,11 @@ const colors3 = {
   bg: "#f5f1eb",
   text: "#1f1a17",
   muted: "#6f6257",
-  high: "#9f2f3f",
-  medHigh: "#c96b2c",
-  medium: "#d8b64c",
-  medLow: "#98a84b",
-  low: "#6f7d3c"
+  high: "#690249",
+  medHigh: "#8F0045",
+  medium: "#BD153F",
+  medLow: "#EA6121",
+  low: "#EC961D"
 };
 
 const rankColor = {
@@ -15,6 +15,34 @@ const rankColor = {
   3: colors3.medium,
   2: colors3.medLow,
   1: colors3.low
+};
+
+const materialInfo = {
+  Polyester: {
+    name: "Polyester",
+    image: "Synthetic fibre sketch",
+    body: "Polyester is made from petroleum-based PET plastic, melted and spun into fibres. Common in cheap everyday clothing, activewear, fleece, dresses, and blended fabrics."
+  },
+  Cotton: {
+    name: "Cotton",
+    image: "Cotton plant sketch",
+    body: "Made from natural cotton plant fibres that are harvested, cleaned, spun, woven, and dyed. Common in T-shirts, jeans, underwear, basics, and breathable casual clothing."
+  },
+  Nylon: {
+    name: "Nylon",
+    image: "Nylon garment sketch",
+    body: "Made from petroleum-based synthetic polymers melted and stretched into strong fibres. Common in tights, swimwear, windbreakers, activewear, bags, and lightweight outerwear."
+  },
+  Elastane: {
+    name: "Elastane",
+    image: "Stretch fabric sketch",
+    body: "Made from synthetic polyurethane fibres designed to stretch and return to shape. Common in leggings, fitted tops, underwear, swimwear, and stretchy fabric blends."
+  },
+  Acryl: {
+    name: "Acrylic",
+    image: "Knit sweater sketch",
+    body: "Made from synthetic plastic fibres designed to imitate wool. Common in sweaters, scarves, knitwear, and low-cost cold-weather clothing."
+  }
 };
 
 const margin3 = { top: 90, right: 30, bottom: 70, left: 110 };
@@ -90,21 +118,30 @@ d3.csv("JMM429 Project data - Clean Impact of manufacturing.csv").then(data => {
     .style("transition", "opacity 0.2s ease")
     .on("mouseover", function(event, d) {
       const hoveredTextile = d.Textile;
+      const info = materialInfo[hoveredTextile];
 
-      // Dim all cells and labels that don't match
       svg3.selectAll(".impact-cell")
+        .style("opacity", cell => cell.Textile === hoveredTextile ? 1 : 0.25);
+
+      svg3.selectAll(".cell-label")
         .style("opacity", cell => cell.Textile === hoveredTextile ? 1 : 0.35);
 
-      svg3.selectAll(".cell-label")
-        .style("opacity", cell => cell.Textile === hoveredTextile ? 1 : 0.45);
+      if (info) {
+        document.getElementById("material-tag-name").textContent = info.name;
+        document.getElementById("material-tag-body").textContent = info.body;
+        document.getElementById("material-tag-image").innerHTML = `<span>${info.image}</span>`;
+        document.getElementById("material-tag").classList.add("is-active");
+      }
     })
     .on("mouseout", function() {
-      // Restore all cells and labels
-      svg3.selectAll(".impact-cell")
-        .style("opacity", 1);
+      svg3.selectAll(".impact-cell").style("opacity", 1);
+      svg3.selectAll(".cell-label").style("opacity", 1);
 
-      svg3.selectAll(".cell-label")
-        .style("opacity", 1);
+      document.getElementById("material-tag-name").textContent = "Hover over a material";
+      document.getElementById("material-tag-body").textContent =
+        "Select a textile in the chart to learn how it is made and where it is commonly used.";
+      document.getElementById("material-tag-image").innerHTML = `<span>image space</span>`;
+      document.getElementById("material-tag").classList.remove("is-active");
     });
 
   // Cell labels

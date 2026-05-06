@@ -217,17 +217,19 @@
     ============================================================ -->
     <section class="s-production" id="s-production" aria-labelledby="production-heading">
 
-      <div class="prose-col">
-        <h2 id="production-heading">Where we are</h2>
-        <p>We are producing more garments than ever before. However, we are also
-           throwing away more garments than ever before.</p>
+      <div class="s-production__sticky">
+
+        <div class="prose-col">
+          <h2 id="production-heading">Where we are</h2>
+          <p>We are producing more garments than ever before. However, we are also
+            throwing away more garments than ever before.</p>
+        </div>
+
+        <div class="full-width-media" id="line-chart" aria-label="Line chart of textile generation vs landfilling"></div>
+
       </div>
 
-      <!-- Connected scatterplot — full viewport width -->
-      <div class="full-width-media" id="line-chart" aria-label="Line chart of textile generation vs landfilling"></div>
-
     </section>
-
 
     <!-- ============================================================
          SECTION 5 — WHAT ARE WE WEARING? (MATERIAL COMPOSITION)
@@ -279,7 +281,7 @@
                 y="493"
                 width="479"
                 height="0"
-                fill="#d99aa4"
+                fill="#BD153F"
                 clip-path="url(#shirt-clip)"
                 opacity="0.78" />
 
@@ -289,7 +291,7 @@
                 y="493"
                 width="479"
                 height="0"
-                fill="#b8b3e9"
+                fill="#690249"
                 clip-path="url(#shirt-clip)"
                 opacity="0.85" />
 
@@ -344,13 +346,26 @@
       </div>
 
       <!-- Heat map + sidebar tooltip — full viewport width -->
-      <div class="full-width-media full-width-media--with-sidebar" id="materials-chart" aria-label="Heatmap of textile environmental impacts">
-        <!-- Heat map rendered by ImpactHeatMap.js -->
-        <!-- Sidebar detail panel (populated on hover) -->
-        <aside class="material-detail-panel" id="material-detail" aria-live="polite" hidden>
-          <h3 class="material-detail__name" id="material-detail-name"></h3>
-          <p class="material-detail__body" id="material-detail-body"></p>
+      <div class="full-width-media full-width-media--with-sidebar" id="materials-chart-wrap">
+
+        <div id="materials-chart" aria-label="Heatmap of textile environmental impacts">
+          <!-- Heat map rendered by ImpactHeatMap.js -->
+        </div>
+
+        <aside class="material-tag" id="material-tag" aria-live="polite">
+          <div class="material-tag__hole"></div>
+
+          <div class="material-tag__image" id="material-tag-image">
+            <span>image space</span>
+          </div>
+
+          <p class="material-tag__eyebrow">Material profile</p>
+          <h3 class="material-tag__name" id="material-tag-name">Hover over a material</h3>
+          <p class="material-tag__body" id="material-tag-body">
+            Select a textile in the chart to learn how it is made and where it is commonly used.
+          </p>
         </aside>
+
       </div>
 
     </section>
@@ -363,34 +378,44 @@
     ============================================================ -->
     <section class="s-washing" id="s-washing" aria-labelledby="washing-heading">
 
-      <div class="prose-col">
-        <h2 id="washing-heading">Every wash pollutes</h2>
-        <p>When synthetic garments are machine-washed, they shed microscopic
-           plastic fibres that pass straight through water-treatment plants and
-           into rivers and oceans.</p>
+      <div class="s-washing__sticky">
+
+        <div class="prose-col s-washing__text">
+          <h2 id="washing-heading">Every wash pollutes</h2>
+        </div>
+
+        <div class="washing-steps" aria-label="Microplastic pollution process">
+
+          <figure class="washing-step" data-wash-index="0">
+            <img src="images/Open_Washer.png" alt="Clothes inside a washing machine">
+            <figcaption>Many of the materials used in fast fashion are derived from plastic compounds. This means they are not biodegradable.</figcaption>
+          </figure>
+
+          <figure class="washing-step" data-wash-index="1">
+            <img src="images/Closed_Washer.png" alt="Clothes being washed in a washing machine">
+            <figcaption>When these synthetic garments are machine-washed, they shed microscopic plastic fibers.</figcaption>
+          </figure>
+
+          <figure class="washing-step" data-wash-index="2">
+            <img src="images/Water_Drop.png" alt="Microplastic fibers passing through water">
+            <figcaption>These fibers pass straight through water treatment plants and end up in our rivers and oceans.</figcaption>
+          </figure>
+
+        </div>
+
       </div>
 
-      <!-- Scroll-triggered washing-machine illustration — full viewport width -->
-      <div class="full-width-media" id="washing-machine" aria-label="Animated washing machine illustration">
-        <!-- PLACEHOLDER: SVG / canvas animation to be added -->
-        <div class="media-placeholder">Washing Machine Animation — to be built</div>
-      </div>
-
-      <!-- Stat pull-quote -->
       <div class="prose-col prose-col--stat">
         <p class="stat-text">On average, <strong>500,000 tons</strong> of microplastics
-           are released into the ocean each year from washing synthetic textiles —
-           the equivalent of <strong>50 million plastic bottles</strong>.</p>
+          are released into the ocean each year from washing synthetic textiles —
+          the equivalent of <strong>50 million plastic bottles</strong>.</p>
       </div>
 
-      <!-- Bottle-equivalent visual — full viewport width -->
       <div class="full-width-media" id="bottle-visual" aria-label="Visual showing 50 million plastic bottle equivalent">
-        <!-- PLACEHOLDER: icon-array / illustration to be added -->
         <div class="media-placeholder">50M Bottles Visual — to be built</div>
       </div>
 
     </section>
-
 
     <!-- ============================================================
          SECTION 8 — ALL THIS FOR WHAT? (WEARS COUNTER)
@@ -398,17 +423,40 @@
     ============================================================ -->
     <section class="s-wears" id="s-wears" aria-labelledby="wears-heading">
 
-      <div class="prose-col">
-        <h2 id="wears-heading">All this, for what?</h2>
-        <p>The average consumer now buys <strong>60 % more clothing</strong> than 15
-           years ago, but keeps each item for only half as long. A garment is
-           typically worn just 7–10 times before being thrown away.</p>
-      </div>
+      <div class="s-wears__sticky">
 
-      <!-- Scroll-driven outfit interactive — full viewport width -->
-      <div class="full-width-media" id="wear-chart" aria-label="Interactive outfit scroll showing 7 wears before disposal">
-        <!-- PLACEHOLDER: scroll-driven D3 / SVG to be added -->
-        <div class="media-placeholder">Outfit / Wear Counter — to be built</div>
+        <div class="s-wears__text">
+          <h2 id="wears-heading">All this, for what?</h2>
+
+          <p>
+            The average consumer now buys <strong>60% more clothing</strong> than 15
+            years ago, but keeps each item for only half as long. 
+            Each garment is typically worn only <strong>7–10 times</strong>.
+          </p>
+
+          <p class="s-wears__text-2" id="wears-text-2" aria-hidden="true">
+            Afterwards, it is simply thrown away.
+          </p>
+        </div>
+
+        <div class="s-wears__visual" aria-label="Outfit changes ending in disposal">
+
+          <div class="wear-counter" id="wear-counter">Wear 1 of 7</div>
+
+          <div class="outfit-stage">
+            <img class="outfit-item" data-outfit-index="0" src="images/outfits/Outfit_1.png" alt="Outfit 1">
+            <img class="outfit-item" data-outfit-index="1" src="images/outfits/Outfit_2.png" alt="Outfit 2">
+            <img class="outfit-item" data-outfit-index="2" src="images/outfits/Outfit_3.png" alt="Outfit 3">
+            <img class="outfit-item" data-outfit-index="3" src="images/outfits/Outfit_4.png" alt="Outfit 4">
+            <img class="outfit-item" data-outfit-index="4" src="images/outfits/Outfit_5.png" alt="Outfit 5">
+            <img class="outfit-item" data-outfit-index="5" src="images/outfits/Outfit_6.png" alt="Outfit 6">
+            <img class="outfit-item" data-outfit-index="6" src="images/outfits/Outfit_7.png" alt="Outfit 7">
+
+            <img class="trash-can" id="trash-can" src="images/Trashcan.png" alt="Trash can">
+          </div>
+
+        </div>
+
       </div>
 
     </section>

@@ -1,8 +1,8 @@
 const colors = {
   bg: "#f5f1eb",        // linen
-  text: "#1C1D21",      // carbon black
-  muted: "#1C1D21",     // secondary text
-  market: "#97A12B",    // toxic green
+  text: "#211C1C",      // shadow gray
+  muted: "#211C1C",     // secondary text
+  market: "#BD153F",    // toxic green
   accent: "#d97706"      // tangerine highlight
 };
 

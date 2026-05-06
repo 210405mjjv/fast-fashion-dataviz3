@@ -145,3 +145,85 @@ function onCompositionScroll() {
 window.addEventListener("scroll", onCompositionScroll, { passive: true });
 window.addEventListener("resize", onCompositionScroll);
 onCompositionScroll();
+
+// ── Wears section: outfit changes → trash can ─────────────────────
+const wearsSection = document.getElementById('s-wears');
+const outfitItems = Array.from(document.querySelectorAll('.outfit-item'));
+const trashCan = document.getElementById('trash-can');
+const wearsText2 = document.getElementById('wears-text-2');
+const wearCounter = document.getElementById('wear-counter');
+
+outfitItems.sort((a, b) => +a.dataset.outfitIndex - +b.dataset.outfitIndex);
+
+function getWearsProgress() {
+  const rect = wearsSection.getBoundingClientRect();
+  const scrollRange = wearsSection.offsetHeight - window.innerHeight;
+  return Math.max(0, Math.min(1, -rect.top / scrollRange));
+}
+
+function onWearsScroll() {
+  const p = getWearsProgress();
+
+  // 0 → 0.72: outfit changes
+  const outfitPhaseEnd = 0.72;
+  const trashPhaseStart = 0.78;
+
+  const outfitP = Math.max(0, Math.min(1, p / outfitPhaseEnd));
+  const activeIndex = Math.min(
+    outfitItems.length - 1,
+    Math.floor(outfitP * outfitItems.length)
+  );
+
+  outfitItems.forEach((item, i) => {
+    item.classList.toggle('visible', p < trashPhaseStart && i === activeIndex);
+  });
+
+  if (p < trashPhaseStart) {
+    wearCounter.textContent = `Wear ${activeIndex + 1} of 7`;
+    wearCounter.style.opacity = 1;
+  }
+
+  // 0.78 → 1: trash can + second text
+  if (p >= trashPhaseStart) {
+    trashCan.classList.add('visible');
+    wearsText2.classList.add('visible');
+    wearsText2.removeAttribute('aria-hidden');
+    wearCounter.textContent = 'Discarded';
+  } else {
+    trashCan.classList.remove('visible');
+    wearsText2.classList.remove('visible');
+    wearsText2.setAttribute('aria-hidden', 'true');
+  }
+}
+
+window.addEventListener('scroll', onWearsScroll, { passive: true });
+onWearsScroll();
+
+// ── Washing section: images/text reveal one-by-one ───────────────
+const washingSection = document.getElementById('s-washing');
+const washingSteps = Array.from(document.querySelectorAll('.washing-step'));
+
+washingSteps.sort((a, b) => +a.dataset.washIndex - +b.dataset.washIndex);
+
+function getWashingProgress() {
+  const rect = washingSection.getBoundingClientRect();
+  const scrollRange = washingSection.offsetHeight - window.innerHeight;
+  return Math.max(0, Math.min(1, -rect.top / scrollRange));
+}
+
+function onWashingScroll() {
+  const p = getWashingProgress();
+
+  washingSteps.forEach((step, i) => {
+    const threshold = i / washingSteps.length;
+
+    if (p >= threshold) {
+      step.classList.add('visible');
+    } else {
+      step.classList.remove('visible');
+    }
+  });
+}
+
+window.addEventListener('scroll', onWashingScroll, { passive: true });
+onWashingScroll();
